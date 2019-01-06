@@ -259,7 +259,8 @@ foreach (cmd; c.commands) {
     }
 }
 
-string css = colorschemeCSS ~ defaultCSS;
+string css = "<style>\n" ~ colorschemeCSS ~ "</style>\n" ~
+             "<style>\n" ~ defaultCSS ~ "</style>";
 string scripts = "<script>\n" ~ prettify ~ "</script>\n";
 scripts ~= prettifyExtension;
 
@@ -271,9 +272,7 @@ output ~= "<!DOCTYPE html>\n" ~
              "<meta charset=\"utf-8\">\n" ~
              "<title>" ~ c.title ~ "</title>\n" ~
              scripts ~
-             "<style>\n" ~
              css ~
-             "</style>\n" ~
              "</head>\n";
 ---
 
